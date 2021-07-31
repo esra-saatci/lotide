@@ -1,4 +1,4 @@
-const eqArrays = function (array1, array2) {
+const eqArrays = function(array1, array2) {
   if (array1.length !== array2.length) {
     return false;
   }
@@ -10,7 +10,7 @@ const eqArrays = function (array1, array2) {
 };
 
 
-const assertArraysEqual = function (array1, array2) {
+const assertArraysEqual = function(array1, array2) {
   if (eqArrays(array1, array2)) {
     console.log(`✅✅✅ Assertion Passed: ${array1} === ${array2}`);
   } else {
@@ -18,7 +18,7 @@ const assertArraysEqual = function (array1, array2) {
   }
 };
 
-const takeUntil = function (array, callback) {
+const takeUntil = function(array, callback) {
   let results = [];
 
   for (let item of array) {
@@ -43,5 +43,5 @@ const results2 = takeUntil(data2, x => x === ',');
 console.log(results2);
 
 
-assertArraysEqual((results1), [ 1, 2, 5, 7, 2 ]); 
-assertArraysEqual((results2), [ 'I\'ve', 'been', 'to', 'Hollywood' ]); 
+assertArraysEqual((results1), [ 1, 2, 5, 7, 2 ]);
+assertArraysEqual((results2), [ 'I\'ve', 'been', 'to', 'Hollywood' ]);
