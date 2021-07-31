@@ -1,35 +1,40 @@
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length === 0 && arr2.length > 0) {
+const eqArrays = function(array1, array2) {
+  if (array1.length !== array2.length) {
     return false;
   }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
+  for (let i = 0; i < array1.length; i ++) {
+    if (array1[i] !== array2[i]) {
       return false;
     }
-  }
-  return true;
+  } return true;
 };
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    console.log(`Assertion passed: ${actual} === ${expected}`);
+
+const assertArraysEqual = function(array1, array2) {
+  if (eqArrays(array1, array2)) {
+    console.log(`✅✅✅ Assertion Passed: ${array1} === ${array2}`);
   } else {
-    console.log(`Assertion failed: ${actual} !== ${expected}`);
+    console.log(`❌❌❌ Assertion Failed: ${array1} !== ${array2}`);
   }
 };
+
 const middle = function(array) {
-  let arr = [];
-  let middleEl = array.length / 2;
-  if (array.length <= 2) {
+  let result = [];
+  let middleIndex = (array.length - 1) / 2;
+  if (array.length < 3) {
     return [];
-  } else if (array.length % 2 === 0) {
-    arr.push(array[middleEl - 1], array[middleEl]);
-  } else if (array.length % 2 !== 0) {
-    arr.push(array[Math.floor(middleEl)]);
   }
-  return arr;
+
+  if (array.length % 2 === 0) {
+    result.push(array[Math.floor(middleIndex)], array[Math.round(middleIndex)]);
+  } else {
+    result.push(array[middleIndex]);
+  }
+  return result;
 };
+
 
 assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);// => [2, 3]
 assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]); // => [3, 4]
-assertArraysEqual(middle([1, 2, 3]), [3]); // => 2
+assertArraysEqual(middle([1, 2, 3]), [2]); // => 2
 assertArraysEqual(middle([1, 2]), []); // => []
+
