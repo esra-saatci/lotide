@@ -1,41 +1,30 @@
 const eqObjects = function(object1, object2) {
-  if (Object.keys(object1).length !== Object.keys(object2).length) {
+  let obj1 = Object.keys(object1);
+  let obj2 = Object.keys(object2);
+  if (obj1.length !== obj2.length) {
     return false;
-  } else {
-    let allMatch = true;
-    for (let key of Object.keys(object1)) {
-      let currentKey = key;
-      let currentMatch = false;
-      for (let otherKey of Object.keys(object2)) {
-        if (Array.isArray(object1[currentKey]) && Array.isArray(object2[otherKey]) && eqArrays(object1[currentKey], object2[otherKey])) {
-          currentMatch = true;
-        }
-        if (currentKey === otherKey && object1[currentKey] === object2[currentKey]) {
-          currentMatch = true;
-        }
-      }
-      if (currentMatch === false) {
-        allMatch = false;
-      }
-    }
-    return allMatch;
   }
+  for (let value of obj1) {
+    if (Array.isArray(obj1[value]) === Array.isArray(obj2[value])) {
+      eqArrays(obj1, obj2);
+      return true;
+    }
+    return false;
+  }
+  return true;
 };
 
-const eqArrays = function(actual, expected) {
-  //If array lengths do not match, false.
-  if (actual.length !== expected.length) {
-    return false;
-  //If all items are not identical, false
-  }
-  for (let i = 0; i < actual.length; i++) {
-    if (actual[i] !== expected[i]) {
+
+
+const eqArrays = function(arr1, arr2) {
+  for (let i in arr1) {
+    if (arr1[i] !== arr2[i]) {
       return false;
     }
   }
-  //If above conditions are not triggered, true.
   return true;
 };
+
 
 
 const assertObjectsEqual = function(actual, expected) {
@@ -48,3 +37,6 @@ const assertObjectsEqual = function(actual, expected) {
 };
 
 assertObjectsEqual({a: 1, b: 2, c: [1, 2, 3]}, {a: 1, b: 2, c: [1, 2, 3]});
+
+
+
