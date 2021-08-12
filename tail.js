@@ -1,17 +1,11 @@
-let actual = "Lighthouse Labs";
-let expected = "Bootcamp";
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log("Assertion Passed: " + actual + " === " + expected);
-  } else if (actual !== expected) {
-    console.log("Assertion Failed: " + actual + " !== " + expected);
-  }
+const assertEqual = require('./assertEqual');
 
-};
 
-const tail = function(_array){
-  return _array;
+const tail = function(array) {
+  let newArray = array.slice(1);
+  return newArray;
 };
 
 
-assertEqual(tail(["Lighthouse Labs", "Bootcamp","Labs"]),"Lighthouse Labs");  
+
+module.exports = tail;
