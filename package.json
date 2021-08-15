@@ -1,6 +1,6 @@
 {
   "name": "@esra-saatci/lotide",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modular collection of functions that operate on Arrays and Objects",
   "main": "assertArraysEqual.js",
   "directories": {
