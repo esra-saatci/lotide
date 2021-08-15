@@ -6,7 +6,7 @@ const eqArrays = function(array1, array2) {
     if (array1[i] !== array2[i]) {
       return false;
     }
-  }return true;
+  } return true;
 };
 
 
@@ -25,7 +25,7 @@ const map = function(array, callback) {
     results.push(callback(item));
   }
   return results;
-}
+};
 const words = ["ground", "control", "to", "major", "tom"];
 
 
